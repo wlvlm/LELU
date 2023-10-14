@@ -1,3 +1,5 @@
+/* Init */
+
 :root{
     --blue: #293072;
     --fontMain: 'Outfit', sans-serif;
@@ -9,3 +11,6 @@
     box-sizing: border-box;
     font-family: var(--fontMain);
 }
+
+/* Navbar */
+

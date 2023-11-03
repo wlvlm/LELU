@@ -15,18 +15,28 @@ session_start();
     <title>LELU</title>
 </head>
 <body>
-    <script defer type="module" src="../app.js"></script>
+    <script defer type="module" src="assets/app.js"></script>
     <header>
         <nav>
             <img src="assets/img/LELU_logo.svg" alt="Logo de LELU" class="logo">
             <ul class="nav">
-                <li><a href="index.php">Accueil</a></li>    
-                <li><a href="catalog.php">Parcourir</a></li>
-                <li><a href="community.php">Communauté</a></li>
+                <li class="desktop"><a href="index.php">Accueil</a></li>
+                <li class="mobile"><a href="index.php"><img src="assets/img/"></a></li>   
+
+                <li class="desktop"><a href="catalog.php">Parcourir</a></li>
+                <li class="mobile"><a href="catalog.php"><img src="assets/img/"></a></li> 
+
+                <li class="desktop"><a href="community.php">Communauté</a></li>
+                <li class="mobile"><a href="community.php"><img src="assets/img/"></a></li> 
+
                 <?php if(isset($_SESSION['account_id'])){ ?> 
-                <li><a href="acocunt.php">Mon compte</a></li>
+                <li class="desktop"><a href="account.php">Mon compte</a></li>
+                <li class="mobile"><a href="account.php"></a></li>  
+
                 <?php } else { ?>
-                <li><a href="login.php">Se connecter</a></li>
+                <li class="desktop"><a href="login.php">Se connecter</a></li>
+                <li class="mobile"><a href="login.php"><img src="assets/img/"></a></li> 
+                   
                 <?php } ?>
             </ul>
         </nav>

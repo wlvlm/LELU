@@ -15,6 +15,7 @@ session_start();
     <title>LELU</title>
 </head>
 <body>
+    <script defer type="module" src="../app.js"></script>
     <header>
         <nav>
             <img src="assets/img/LELU_logo.svg" alt="Logo de LELU" class="logo">

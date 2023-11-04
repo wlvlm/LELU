@@ -12,7 +12,7 @@ class Manager
     protected function dbConnect()
     {
         session_start();
-        $db = new PDO('mysql:host=localhost;dbname=u593728104_tsb;charset=utf8', 'u593728104_wizzarttsb', 'Azerty24!');
+        $db = new PDO('mysql:host='.$db_host.';dbname='.$db_name.'', $db_user, $db_password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         error_reporting(E_ALL ^ E_NOTICE);  

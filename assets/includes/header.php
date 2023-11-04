@@ -4,9 +4,10 @@ $_SESSION['account_id'] = 1;
 $_SESSION['account_pp'] = 'account.png';
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="fr">
 <head>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -19,27 +20,18 @@ $_SESSION['account_pp'] = 'account.png';
 <body>
     <script defer type="module" src="assets/app.js"></script>
     <header>
+        <?php if(isset($_SESSION['account_id'])){ ?> 
         <nav>
             <img src="assets/img/LELU_logo.svg" alt="Logo de LELU" class="logo">
             <ul class="nav">
-                <li class="desktop"><a href="index.php">Accueil</a></li>
                 <li class="mobile index"><a href="index.php"><img src="assets/img/index.svg"></a></li>   
 
-                <li class="desktop"><a href="catalog.php">Parcourir</a></li>
                 <li class="mobile catalog"><a href="catalog.php"><img src="assets/img/catalog.svg"></a></li> 
 
-                <li class="desktop"><a href="community.php">Communauté</a></li>
                 <li class="mobile community"><a href="community.php"><img src="assets/img/community.svg"></a></li> 
 
-                <?php if(isset($_SESSION['account_id'])){ ?> 
-                <li class="desktop"><a href="account.php">Mon compte</a></li>
-                <li class="mobile"><a href="account.php"><img src="assets/img/<?=$_SESSION['account_pp']?>" class="account"></a></li>  
-
-                <?php } else { ?>
-                <li class="desktop"><a href="login.php">Se connecter</a></li>
-                <li class="mobile"><a href="login.php"><img src="assets/img/"></a></li> 
-
-                <?php } ?>
+                <li class="mobile"><a href="account.php"><img src="assets/img/<?=$_SESSION['account_pp']?>" class="account"></a></li>                  
             </ul>
         </nav>
+        <?php } ?>
     </header>

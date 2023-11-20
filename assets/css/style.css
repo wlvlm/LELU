@@ -1,7 +1,7 @@
 /* Init */
 
 :root{
-    --blue: #293072;
+    --blue: #224870;
     --dark: #122C34;
     --pink: #F9B9F2;
     --green: #CEF7A0;
@@ -111,14 +111,82 @@ main.login{
     height: 100vh;
 }
 
+.login input{
+    padding: 22px 10px;
+    font-family: var(--fontMain);
+    font-size: 22px;
+    width: 80%;
+    border-radius: 12px;
+    border: 2px solid var(--blue);
+}
+
+.password{
+    position: relative;
+}
+
+.logo{
+    font-size: 87px;
+    font-weight: bold;
+    font-family: var(--fontMain);
+    color: var(--blue);
+    transform: rotate(-9deg);
+    position: absolute;
+    top: -57px;
+
+}
+
+#checkbox-true{
+    display: none;
+}
+
+#showPasswordCheckbox{
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    opacity: 0;
+    z-index: 10;
+}
+
+#showPasswordCheckbox:checked ~ #checkbox-true{
+    display: inline-block;
+}
+
+#showPasswordCheckbox:checked ~ #checkbox-false{
+    display: none;
+}
+
+.eyeIcon{
+    width: 30px;
+    object-fit: unset;
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+}
+
+.login input[type=submit]{
+    background: var(--blue);
+    border: none;
+    width: 60%;
+    font-size: 18px;
+    color: var(--white);
+}
+
 .modal{
     border-radius: 17px;
     -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16); 
     box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 80vw;
+    max-width: 450px;
+    height: 60vh;
     padding: clamp(25px, 5vw, 80px);
-
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (min-width: 768px){    

@@ -46,7 +46,11 @@ function displayBookData(data){
         const title = document.createElement("h3")
         const para = document.createElement("p")
         // let img = 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
-        let img = data.items[i].volumeInfo.imageLinks.thumbnail  
+        if (data.items[i].volumeInfo.imageLinks.thumbnail){
+            var img = data.items[i].volumeInfo.imageLinks.thumbnail
+        } else {
+            var img = 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
+        }
         img = img.replace('http', 'https')
         img = img.replace('zoom=1', 'zoom=0')
 

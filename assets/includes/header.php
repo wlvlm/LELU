@@ -1,7 +1,9 @@
 <?php
 session_start();
-$_SESSION['account_id'] = 1;
+// $_SESSION['account_id'] = NULL;
 $_SESSION['account_pp'] = 'account.png';
+$_SESSION['account_id'] = NULL;
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -14,7 +16,7 @@ $_SESSION['account_pp'] = 'account.png';
     <link rel="shortcut icon" href="assets/img/LELU_favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>LELU</title>
 </head>
 <body>

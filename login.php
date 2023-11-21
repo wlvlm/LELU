@@ -1,21 +1,11 @@
 <?php 
 include_once('assets/includes/header.php');
+?>
 
-
-if (isset($_SESSION['account_id'])){    
-} else { ?>
-
-
-<main class="login register">
+<main class="login">
         <div class="modal">
             <h1 class="logo">LELU</h1>
-            <form action="registerAction.php" method="post" class="login">
-                <input name="firstName" required placeholder="Prénom*" type="text"><br><br>
-
-                <input name="lastName" required placeholder="Nom*" type="text"><br><br>
-
-                <input name="pseudo" required placeholder="Pseudo*" type="text"><br><br>
-
+            <form action="loginAction.php" method="post" class="login">
                 <input placeholder="Email*" required type="email" name="email"><br><br>
 
                 <div class="password">
@@ -30,14 +20,13 @@ if (isset($_SESSION['account_id'])){
                         </span>
                     </label>
                 </div><br><br>
-                <input type="submit" value="S'inscrire"><br><br>
+                <input type="submit" value="Se connecter"><br><br>
 
-                <a href="index.php">Se connecter</a><br>
+                <a href="register.php">S'inscrire</a><br>
+                <a href="forgottenPassword.php">Mot de passe oublié ?</a>
             </form>
         </div>
     </main>
-
-    <?php } ?>
 
     <script>
         function showPassword(){
@@ -52,4 +41,4 @@ if (isset($_SESSION['account_id'])){
                 password.type = 'password'
             }
         }
-    </script>*
+    </script>

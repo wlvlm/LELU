@@ -2,9 +2,7 @@
 
 <?php
 session_start();
-$_SESSION['account_pp'] = 'account.png';
-$_SESSION['account_id'] = NULL;
-
+// var_dump($_SESSION);
 ?>
 
 <!-- J'initialise la lecture du document par les navigateurs en HTML5 avec le DOCTYPE -->

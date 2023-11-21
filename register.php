@@ -19,7 +19,7 @@ if (isset($_SESSION['account_id'])){
                 <input placeholder="Email*" required type="email" name="email"><br><br>
 
                 <div class="password">
-                    <input placeholder="Mot de passe*" required type="password" id="loginPassword">
+                    <input placeholder="Mot de passe*" required type="password" id="loginPassword" name="password">
                     <label>
                         <input type="checkbox" id="showPasswordCheckbox" onclick="showPassword()">
                         <span id="checkbox-true">

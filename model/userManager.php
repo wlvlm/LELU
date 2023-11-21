@@ -1,7 +1,7 @@
 <?php
 class userManager extends Manager
 {
-    public function register($firstname, $lastname, $pseudo, $email, $password, $pp)
+    public function register($firstname, $lastname, $pseudo, $email, $password)
     {
         $db = $this->dbConnect();
         $checkIfUserAlreadyExists = $db->prepare('SELECT email FROM users WHERE email = ?');
@@ -9,8 +9,8 @@ class userManager extends Manager
 
         if ($checkIfUserAlreadyExists->rowCount() == 0){
 
-            $insertUserOnWebsite = $db->prepare('INSERT INTO users(firstName, lastName, pseudo, email, password, pp) VALUES (?, ?, ?, ?, ?, ?)');
-            $insertUserOnWebsite->execute(array($firstname, $lastname, $pseudo, $email, $password, $pp));
+            $insertUserOnWebsite = $db->prepare('INSERT INTO users(firstName, lastName, pseudo, email, password) VALUES (?, ?, ?, ?, ?)');
+            $insertUserOnWebsite->execute(array($firstname, $lastname, $pseudo, $email, $password));
 
             $getInfosOfThisUserReq = $db->prepare('SELECT * FROM users WHERE email = ? AND password = ?');
             $getInfosOfThisUserReq->execute(array($email, $password));
@@ -21,9 +21,8 @@ class userManager extends Manager
 
         } else {
 
-            $errorMsg = 'Cet email est déjà enregistré !';
-            $_SESSION['error'] = $errorMsg;
-            header('Location: index.php?action=register');
+            $_SESSION['error'] = 'Cet email est déjà enregistré !';
+            header('Location: error.php');
         }
     }
 

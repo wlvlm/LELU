@@ -115,7 +115,7 @@ main.login{
     padding: 22px 10px;
     font-family: var(--fontMain);
     font-size: 22px;
-    width: 80%;
+    width: 90%;
     border-radius: 12px;
     border: 2px solid var(--blue);
 }
@@ -172,6 +172,12 @@ main.login{
     width: 60%;
     font-size: 18px;
     color: var(--white);
+    cursor: pointer;
+    transition: all ease-out .3s;
+}
+
+.login input[type=submit]:hover{
+    scale: 1.02;
 }
 
 .login .modal{

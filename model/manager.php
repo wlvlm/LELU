@@ -5,7 +5,6 @@ class Manager
 {
     protected function dbConnect()
     {
-        session_start();
         $json = file_get_contents('config.json');
         $parsed_json = json_decode($json);
         $db_host = $parsed_json->{'db_host'};

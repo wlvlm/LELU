@@ -53,4 +53,14 @@ class userManager extends Manager
         }
     }
 
+    public function checkUserPp($email) 
+    {
+        $db = $this->dbConnect();
+        $checkUserPp = $db->prepare('SELECT pp FROM users WHERE email = ?');
+        $checkUserPp->execute(array($email));
+
+        $userData = $checkUserPp->fetch();
+        return $userData;
+    }
+
 }

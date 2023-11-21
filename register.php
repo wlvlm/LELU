@@ -1,6 +1,11 @@
 <?php 
 include_once('assets/includes/header.php');
-
+$url = basename($_SERVER['PHP_SELF']);
+$query = $_SERVER['QUERY_STRING'];
+if($query){
+$url .= "?".$query;
+}
+$_SESSION['previousPage'] = $url;
 
 if (isset($_SESSION['account_id'])){    
 } else { ?>

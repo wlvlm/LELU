@@ -26,4 +26,31 @@ class userManager extends Manager
         }
     }
 
+    public function login($email, $password) 
+    {
+        $db = $this->dbConnect();
+        $checkIfUserExists = $db->prepare('SELECT * FROM users WHERE email = ?');
+        $checkIfUserExists->execute(array($email));
+
+        if ($checkIfUserExists->rowCount() > 0) {
+
+            $userData = $checkIfUserExists->fetch();
+            if(password_verify($password, $userData['password'])){
+                return $userData;
+            } else {
+                $errorMsg = 'Le mot de passe saisi est invalide !';
+                $_SESSION['email'] = $email;
+                $_SESSION['error'] = $errorMsg;
+                header('Location: error.php');   
+            }
+
+        } else {
+            
+            $errorMsg = 'L\'adresse email ou le mot de passe est invalide !';
+            $_SESSION['error'] = $errorMsg;
+            header('Location: error.php');      
+
+        }
+    }
+
 }

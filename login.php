@@ -1,5 +1,11 @@
 <?php 
 include_once('assets/includes/header.php');
+$url = basename($_SERVER['PHP_SELF']);
+$query = $_SERVER['QUERY_STRING'];
+if($query){
+$url .= "?".$query;
+}
+$_SESSION['previousPage'] = $url;
 ?>
 
 <main class="login">
@@ -9,7 +15,7 @@ include_once('assets/includes/header.php');
                 <input placeholder="Email*" required type="email" name="email"><br><br>
 
                 <div class="password">
-                    <input placeholder="Mot de passe*" required type="password" id="loginPassword">
+                    <input placeholder="Mot de passe*" required type="password" id="loginPassword" name="password">
                     <label>
                         <input type="checkbox" id="showPasswordCheckbox" onclick="showPassword()">
                         <span id="checkbox-true">

@@ -2,7 +2,21 @@
 
 <?php
 session_start();
-// var_dump($_SESSION);
+
+// Vérification de la version la plus récente de la photo de profil utilisateur
+
+function checkUserPp($email){
+    $userPp = new userManager();
+    $data = $userPp->checkUserPp($email);
+
+    if(!isset($data['pp'])){
+        $_SESSION['account_pp'] = 'defaultPp.png';
+    } else {
+        $_SESSION['account_pp'] = $data['pp']
+    }
+}
+
+checkUserPp($_SESSION['email']);
 ?>
 
 <!-- J'initialise la lecture du document par les navigateurs en HTML5 avec le DOCTYPE -->

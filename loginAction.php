@@ -3,15 +3,13 @@
 require_once('model/manager.php');
 require_once('./model/userManager.php');
 
-$firstName = htmlspecialchars($_POST['firstName']);
-$lastName = htmlspecialchars($_POST['lastName']);
-$pseudo = htmlspecialchars($_POST['pseudo']);
 $email = htmlspecialchars($_POST['email']);
-$password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
+$password = htmlspecialchars($_POST['password']);
 
-function addUser($firstName, $lastName, $pseudo, $email, $password){
-    $newUser = new userManager();
-    $data = $newUser->register($firstName, $lastName, $pseudo, $email, $password);
+
+function login($email, $password){
+    $logUser = new userManager();
+    $data = $logUser->login($email, $password);
     
     if($data){
         $_SESSION['account_id'] = $data['id'];
@@ -19,6 +17,7 @@ function addUser($firstName, $lastName, $pseudo, $email, $password){
         $_SESSION['lastName'] = $data['lastName'];
         $_SESSION['pseudo'] = $data['pseudo'];
         $_SESSION['email'] = $data['email'];
+        $_SESSION['account_pp'] = $data['pp'];
         header('Location: index.php');
         var_dump($data);
     } else {
@@ -28,4 +27,4 @@ function addUser($firstName, $lastName, $pseudo, $email, $password){
     }
 }
 
-addUser($firstName, $lastName, $pseudo, $email, $password);
+login($email, $password);

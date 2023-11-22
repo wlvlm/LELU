@@ -1,10 +1,7 @@
 import ACCESS_KEY from "../config.js"
 google.load("language", "1")
-
 const form = document.querySelector('.form')
-const input = document.querySelector('.input')
-const imgContainer = document.querySelector('.imgContainer')
-const input2 = document.querySelector('.input-2')
+const input = document.querySelector('.search')
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -16,7 +13,7 @@ form.addEventListener("submit", (e) => {
 
 async function fetchData(value) {
     try {
-        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&langRestrict=fr&maxResults=20&key=${ACCESS_KEY}`)
+        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&orderBy=relevance&maxResults=20&key=${ACCESS_KEY}`)
         // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&callback=handleResponse`)
 
         if (!response.ok) {
@@ -38,46 +35,45 @@ function handleResponse(response) {
   }
 
 function displayBookData(data){
-    imgContainer.textContent = '';
+    const container = document.querySelector('.container')
+    // container.textContent = '';
     console.log(data.items)
 
     for (let i = 0; i < data.items.length; i++) {
-        const imgWrapper = document.createElement("div")
-        const title = document.createElement("h3")
-        const para = document.createElement("p")
-        // let img = 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
-        if (data.items[i].volumeInfo.imageLinks.thumbnail){
-            var img = data.items[i].volumeInfo.imageLinks.thumbnail
-        } else {
-            var img = 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
-        }
-        img = img.replace('http', 'https')
-        img = img.replace('zoom=1', 'zoom=0')
+        const book = data.items[i];
+        const card = document.createElement('div')
+        const wrapper = document.createElement('div')
+        const wrapper2 = document.createElement('div')
+        const title = document.createElement('h2')
+        const author = document.createElement('h4')
+        const isbn = document.createElement('h4')
+        const rating = document.createElement('div')
+        const cover = document.createElement('img')
 
-        title.textContent = data.items[i].volumeInfo.title
-        // translate(fr, para)
-        para.textContent = data.items[i].volumeInfo.description
+        wrapper.classList.add('leftSide')
+        wrapper2.classList.add('rightSide')       
+        card.classList.add('card')
+        title.classList.add('title')
+        author.classList.add('bookAuthor')
+        isbn.classList.add('isbn')
 
-        imgContainer.appendChild(imgWrapper)
-        imgWrapper.appendChild(title)
-        // imgContainer.appendChild(para)
-        
-        imgWrapper.style.background = `url(${img})`
-        imgWrapper.style.backgroundSize = 'cover'
-        imgWrapper.style.width = '35vw'
-        imgWrapper.style.height = '40vw'
-        imgWrapper.style.display = 'flex'
-        imgWrapper.style.justifyContent = 'center'
-        imgWrapper.style.alignItems = 'center'
+        title.setAttribute('data-title', book.volumeInfo.title.substring(0, 50))
 
-        title.style.textTransform = 'uppercase'
-        // title.style.color = 'white'
-        // title.style.mixBlendMode = 'difference'
-        title.style.fontFamily = 'arial'
-        title.style.fontWeight = '800'
-        title.style.fontSize = '1.5rem'
-        title.style.background = 'white'
-        title.style.padding = '10px'
+        title.textContent = book.volumeInfo.title.substring(0, 50)
+        author.textContent = 'Auteur(s) : ' + book.volumeInfo.authors
+        isbn.textContent = 'isbn : ' + book.volumeInfo.industryIdentifiers[1].identifier
+        cover.src = book.volumeInfo.imageLinks.thumbnail != 'undefined' ? book.volumeInfo.imageLinks.thumbnail : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
+        // img = img.replace('http', 'https')
+        // img = img.replace('zoom=1', 'zoom=0')
+
+        card.appendChild(wrapper)
+        card.appendChild(wrapper2)
+        wrapper.appendChild(title)
+        wrapper.appendChild(isbn)
+        wrapper.appendChild(author)
+        wrapper.appendChild(rating)
+        wrapper.appendChild(cover)
+        container.appendChild(card)
 
     }
 }

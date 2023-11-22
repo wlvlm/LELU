@@ -15,4 +15,6 @@ function checkUserPp($email){
     }
 }
 
-checkUserPp($_SESSION['email']);
+if(isset($_SESSION['email'])){
+    checkUserPp($_SESSION['email']);
+}

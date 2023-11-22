@@ -6,15 +6,25 @@ if (!isset($_SESSION['account_id'])){
     } else { ?>
 
     <main>
+        <form class="form">
+            <input placeholder="Chercher un livre" type="search" name="search" class="search">
+        </form>
         <div class="container">
-            <h1>Google Books API</h1>
-            <form class="form">
-                <label for="search">Votre recherche :</label>
-                <input type="text" id="search" class="input">
-                <!-- <label for="number">Nombre d'éléments à afficher :</label>
-                <input type="number" id="number" class="input-2"> -->
-            </form>
-            <div class="imgContainer">
+            <div class="card">
+                <div class="leftSide">
+                    <h2 class="title" data-title="Titre du livre">Titre du livre</h2>
+                    <h4 class="isbn">0123456789101</h4>
+                    <h4 class="bookAuthor">Auteur : John Doe</h4>
+                    <div class="rating">
+                        <p class="average">Moyenne totale :</p>
+                        <h2 class="title">4.7</h2>
+                        <div class="starContainer">★★★★★</div>
+                    </div>
+                    <img src="https://i.pinimg.com/236x/37/a9/98/37a99839a447357ee6d3d4b9c991d864.jpg">
+                    <div class="imgContainer">
+                    </div>
+                </div>
+                <div class="rightSide"></div>
             </div>
         </div>
     </main>

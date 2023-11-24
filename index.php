@@ -6,7 +6,7 @@ if (!isset($_SESSION['account_id'])){
     } else { ?>
 
     <main>
-        <form class="form">
+        <form class="form" method="GET">
             <input placeholder="Chercher un livre" type="search" name="search" class="search">
         </form>
         <div class="container">
@@ -24,9 +24,11 @@ if (!isset($_SESSION['account_id'])){
                     <div class="imgContainer">
                     </div>
                 </div>
-                <div class="rightSide"></div>
+                <div class="rightSide">
+
+                </div>
             </div>
         </div>
     </main>
               
-      <?php } ?>
+<?php } ?>

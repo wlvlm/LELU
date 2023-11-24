@@ -245,7 +245,7 @@ main.login{
 }
 
 .title{
-    font-size: 52px;
+    font-size: 62px;
     font-weight: bold;
     font-family: var(--fontMain);
     text-transform: uppercase;
@@ -253,10 +253,11 @@ main.login{
     position: relative;
     z-index: 5;
     cursor: default;
-    white-space: nowrap;
+    max-height: 20%;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 95%;
+    text-wrap: nowrap;
+    display: inline-block;
 }
 
 .title::before{
@@ -267,9 +268,13 @@ main.login{
     color: transparent;
     -webkit-text-stroke: 2px var(--green);
     z-index: -1;
-    white-space: nowrap;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.title.discover{
+    font-size: 82px;
 }
 
 .isbn{
@@ -339,6 +344,90 @@ main.login{
     font-family: var(--fontSecond);
     font-size: 21px;
     color: var(--grey);
+}
+
+.discoverContainer{
+    display: flex;
+    width: 100%;
+    margin-top: -45px;
+}
+
+.wrapper{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: left;
+}
+
+.insideWrapper{
+    width: 75%;
+}
+
+.favorite{
+    width: 512px;
+    /* position: absolute; */
+    /* top: 0; */
+    aspect-ratio: unset;
+    object-fit: unset;
+}
+
+.LOMContainer{
+    position: relative;
+    color: var(--blue);
+    display: inline-block;
+    text-align: left;
+    width: 55%;
+    
+}
+
+.imgDiscoverContainer{
+    position: relative;
+}
+
+.synopsis{
+    width: 80%;
+}
+
+.synopsis > p{
+    font-family: var(--fontMain);
+    font-size: 22px;
+
+}
+
+.synopsis > p > span{
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.discoverCover{
+    width: 350px;
+    aspect-ratio: unset;
+    object-fit: unset;
+    position: absolute;
+    left: 50%;
+    top: 75px;
+    transform: translateX(-50%);
+}
+
+.bookInfo, .LOMContainer, .synopsis, .opinion, .discoverBooks{
+    margin-bottom: 10vh;
+}
+
+.LOM{
+    font-family: var(--fontMain);
+    font-size: 148px;
+    font-weight: bold;
+    transform: rotate(-9deg);
+}
+
+.LOMp{
+    font-family: var(--fontSecond);
+    font-size: 58px;
+    font-weight: lighter;
+    position: absolute;
+    right: 0;
+    bottom: -31px;
 }
 
 @media screen and (min-width: 768px){    

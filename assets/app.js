@@ -57,9 +57,9 @@ function displayBookData(data){
         author.classList.add('bookAuthor')
         isbn.classList.add('isbn')
 
-        title.setAttribute('data-title', book.volumeInfo.title.substring(0, 50))
+        title.setAttribute('data-title', book.volumeInfo.title)
 
-        title.textContent = book.volumeInfo.title.substring(0, 50)
+        title.textContent = book.volumeInfo.title
         author.textContent = 'Auteur(s) : ' + book.volumeInfo.authors
         isbn.textContent = 'isbn : ' + book.volumeInfo.industryIdentifiers[1].identifier
         cover.src = book.volumeInfo.imageLinks.thumbnail != 'undefined' ? book.volumeInfo.imageLinks.thumbnail : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'

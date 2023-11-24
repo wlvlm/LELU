@@ -39,7 +39,7 @@ include('checkPp.php');
             <ul class="nav">
                 <li class="mobile index"><a href="index.php"><img src="assets/img/index.svg"></a></li>   
 
-                <li class="mobile catalog"><a href="catalog.php"><img src="assets/img/catalog.svg"></a></li> 
+                <li class="mobile catalog"><a href="discover.php"><img src="assets/img/catalog.svg"></a></li> 
 
                 <li class="mobile community"><a href="community.php"><img src="assets/img/community.svg"></a></li> 
 
